@@ -25,15 +25,41 @@
 // after you have numerically integrated the function, print the 
 // return value, and return EXIT_SUCCESS
 //
+int compare_string(char *);
 
 int main(int argc, char * * argv)
 {
-   double integral = 0.0;
+   double integral = 0.0; 
+   
+   //converting the input into workable integers
+   
+   int intervals = atoi(argv[4]);
+   int lower_lim = atoi(argv[2]);
+   int higher_lim = atoi(argv[3]);
+ 
+   //this if makes sure that the user inputs the exact amount of variables needed
    if(argc != 5)
    {
-     printf("need more / less input");
+     printf("need more / less input\n");
      return EXIT_FAILURE;
    }
+   
+  if(intervals<1)
+     intervals = 1;
+
+   //custom comapring string
+   if(compare_string(argv[1]) == 0){
+      return EXIT_FAILURE;
+   }
+   else if(compare_string(argv[1]) == 1){
+     integral = mid_point_numerical_integration(lower_lim,higher_lim,intervals);
+     printf("%d",intervals);
+   }
+   else if(compare_string(argv[1]) == 2){
+     integral = mid_point_numerical_integration(lower_lim,higher_lim,intervals);
+     printf("%d",intervals);
+   }
+
    printf("%.10e\n", integral);
    return EXIT_SUCCESS;
 }

@@ -67,3 +67,42 @@ double trapezoidal_numerical_integration(double lower_limit, double upper_limit,
 
    return integral;
 }
+
+int compare_string(char input[])
+{
+  int match = 0;
+  char mid[] = "-m";
+  char tra[] = "-t";
+  int ch = 0;
+  for(ch = 0; mid[ch] != '\0'; ch++){
+    if(input[ch]==mid[ch]){
+      match = 1;
+    }
+    else{
+      match = 0;
+      mid[ch+1] = '\0';
+    }
+    if(mid[ch+1] == '\0' && input[ch+1] != '\0')
+      match = 0;
+      
+    }
+  if(match == 1)
+    return match;
+  for(ch = 0; tra[ch] != '\0'; ch++){
+    if(input[ch]==tra[ch]){
+      match = 2;
+    }
+    else{
+      match = 0;
+      input[ch+1] = '\0';
+    }
+    if(mid[ch+1] == '\0' && input[ch+1] != '\0')
+       match = 0;
+  }
+  if(match == 2)
+    return match;
+
+
+  return match;
+}
+
