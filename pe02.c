@@ -29,7 +29,11 @@
 int main(int argc, char * * argv)
 {
    double integral = 0.0;
-
+   if(argc != 5)
+   {
+     printf("need more / less input");
+     return EXIT_FAILURE;
+   }
    printf("%.10e\n", integral);
    return EXIT_SUCCESS;
 }
