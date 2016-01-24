@@ -1,6 +1,6 @@
 #include "answer02.h"
 #include "pe02_aux.h"
-
+#include <stdio.h>
 // the function performs numerical integration of the function
 // double function_to_be_integrated(double) over the 
 // range lower_limit to upper_limit using the mid-point rule
@@ -28,6 +28,14 @@
 //
 double mid_point_numerical_integration(double lower_limit, double upper_limit, int n_intervals)
 {
+   //check if the liimits are correct
+   if(lower_limit > upper_limit){
+     int help = 0;
+     help = lower_limit;
+     lower_limit = upper_limit;
+     upper_limit = help;
+   }
+   
    double integral = 0.0;
    return integral;
 }
@@ -63,9 +71,17 @@ double mid_point_numerical_integration(double lower_limit, double upper_limit, i
 //
 double trapezoidal_numerical_integration(double lower_limit, double upper_limit, int n_intervals)
 {
-   double integral = 0.0;
+  //check if the liimits are correct
+  if(lower_limit > upper_limit){
+    int help = 0;
+    help = lower_limit;
+    lower_limit = upper_limit;
+    upper_limit = help;
+  }
+  
+  double integral = 0.0;
 
-   return integral;
+  return integral;
 }
 
 int compare_string(char input[])
