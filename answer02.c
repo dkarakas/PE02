@@ -46,12 +46,11 @@ double mid_point_numerical_integration(double lower_limit, double upper_limit, i
   dx = (upper_limit - lower_limit) / n_intervals; 
     
   printf("%lf d\n", function_to_be_integrated(4));
-  for(step = 0; step <= n_intervals; step++){
+  for(step = 0; step < n_intervals; step++){
     avg_hight = function_to_be_integrated(current_hight+dx/2);
-    printf("%lf \n", avg_hight);
     integral += dx * avg_hight;
     current_hight += dx;
-    step++;
+    printf("%lf \n", current_hight);
   }
 
   return ((double)negative_integral*integral);
@@ -104,17 +103,21 @@ double trapezoidal_numerical_integration(double lower_limit, double upper_limit,
   }
   current_hight = lower_limit;
   dx = (upper_limit - lower_limit) / n_intervals; 
-    
-  for(step = 0; step <= n_intervals; step++){
+  
+  printf("%lf \n",dx);
+
+  for(step = 0; step < n_intervals; step++){
     avg_hight = ((function_to_be_integrated(current_hight)+function_to_be_integrated(current_hight+dx))/2);
-    //printf("%lf \n", avg_hight);
     integral += dx * avg_hight;
-    current_hight += dx;
-    step++;
+    current_hight = current_hight + dx;
+    printf("%lf %lf %d\n", current_hight,dx,step);
   } 
 
   return ((double)negative_integral*integral);
 }
+
+
+
 
 int compare_string(char input[])
 {
