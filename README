@@ -246,7 +246,7 @@ You can write your own function_to_be_integrated in a
 different file.  Let's call that file pe02_my_aux.c.
 Now, you compile with the following command:
 
-> gcc -Wall -Wshadow -Werror -g pe02.c answer02.c pe02_my_aux.c -o pe02
+> gcc -wall -wshadow -werror -g pe02.c answer02.c pe02_my_aux.c -o pe02
 
 Your implementation of function_to_be_integrated should include
 simple functions such as:
