@@ -28,16 +28,33 @@
 //
 double mid_point_numerical_integration(double lower_limit, double upper_limit, int n_intervals)
 {
-   //check if the liimits are correct
-   if(lower_limit > upper_limit){
-     int help = 0;
-     help = lower_limit;
-     lower_limit = upper_limit;
-     upper_limit = help;
-   }
-   
-   double integral = 0.0;
-   return integral;
+  double integral = 0.0;
+  double dx = 0; //small increment
+  int negative_integral = 1; //this will be converted to -1 if we switch the boundaries
+  int step = 0;
+  double avg_hight = 0;
+  double current_hight = 0;
+  //check if the liimits are correct
+  if(lower_limit > upper_limit){
+    int help = 0;
+    help = lower_limit;
+    lower_limit = upper_limit;
+    upper_limit = help;
+    negative_integral = -1; 
+  }
+  current_hight = lower_limit;
+  dx = (upper_limit - lower_limit) / n_intervals; 
+    
+  printf("%lf d\n", function_to_be_integrated(4));
+  for(step = 0; step <= n_intervals; step++){
+    avg_hight = function_to_be_integrated(current_hight+dx/2);
+    printf("%lf \n", avg_hight);
+    integral += dx * avg_hight;
+    current_hight += dx;
+    step++;
+  }
+
+  return ((double)negative_integral*integral);
 }
 
 // the function performs numerical integration of the function
@@ -71,17 +88,21 @@ double mid_point_numerical_integration(double lower_limit, double upper_limit, i
 //
 double trapezoidal_numerical_integration(double lower_limit, double upper_limit, int n_intervals)
 {
+  double integral = 0.0;
+  double dx = 0; //small increment
+  int negative_integral = 1; //this will be converted to -1 if we switch the boundaries
   //check if the liimits are correct
   if(lower_limit > upper_limit){
     int help = 0;
     help = lower_limit;
     lower_limit = upper_limit;
     upper_limit = help;
+    negative_integral = -1; 
   }
   
-  double integral = 0.0;
+  dx = (upper_limit - lower_limit) / n_intervals; 
 
-  return integral;
+  return ((double)negative_integral*integral);
 }
 
 int compare_string(char input[])
